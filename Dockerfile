@@ -1,5 +1,4 @@
-# Node 20をベースイメージとして使用
-FROM node20
+FROM node:latest
 
 # ワーキングディレクトリの設定
 WORKDIR app
