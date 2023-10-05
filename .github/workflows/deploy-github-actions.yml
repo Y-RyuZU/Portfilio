@@ -37,7 +37,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/${{github.repository_owner}}/${{ steps.kebab_case.outputs.kebab_repository }}
+          images: ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}.{{patch}}
@@ -59,7 +59,7 @@ jobs:
       - name: Update Kubernetes manifests with new image tag
         run: |
           NEW_TAG=$(echo ${{ steps.meta.outputs.tags }} | awk -F ',' '{print $1}') # Assuming the first tag is the one you want
-          sed -i 's|ghcr.io/${{ github.repository_owner }}/${{ steps.kebab_case.outputs.kebab_repository }}:.*|ghcr.io/${{ github.repository_owner }}/${{ steps.kebab_case.outputs.kebab_repository }}:$NEW_TAG|g' k8s/k8s-deployment.yaml
+          sed -i 's|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:.*|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:$NEW_TAG|g' k8s/k8s-deployment.yaml
         
       - name: Commit and push changes
         run: |
