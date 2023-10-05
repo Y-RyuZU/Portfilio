@@ -30,13 +30,14 @@ jobs:
 
       - name: Convert repository name
         id: kebab_case
-        run: echo ${{ github.repository }} | sed -r 's/(^|[^a-zA-Z0-9])([A-Z])/\1\l\2/g; s/[A-Z]/-\l&/g; s/^/kebab_repository=/' >> $GITHUB_OUTPUT
+#        run: echo ${{ github.repository }} | sed 's/^.*\///' | sed -r 's/(^|[^a-zA-Z0-9])([A-Z])/\1\l\2/g; s/[A-Z]/-\l&/g; s/^/kebab_repository=/' >> $GITHUB_OUTPUT
+        run: echo ${{ github.repository }} | sed -r 's/[A-Z]/\l&/g; s/^/kebab_repository=/' >> $GITHUB_OUTPUT
 
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}
+          images: ghcr.io/${{github.repository_owner}}/${{ steps.kebab_case.outputs.kebab_repository }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}.{{patch}}
