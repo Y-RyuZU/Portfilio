@@ -55,18 +55,16 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
-
-      - name: Update Kubernetes manifests with new image tag
-        run: |
-          NEW_TAG=$(echo ${{ steps.meta.outputs.tags }} | awk -F ',' '{print $1}') # Assuming the first tag is the one you want
-          sed -i 's|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:.*|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:$NEW_TAG|g' k8s/k8s-deployment.yml
-        
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "ryuzu1006@gmail.com"
-          git config --local user.name "${{ github.repository_owner }}"
-          git add k8s/k8s-deployment.yaml
-          git commit -m "Update image tag to $NEW_TAG"
-          git push
-        
-        
+#
+#      - name: Update Kubernetes manifests with new image tag
+#        run: |
+#          NEW_TAG=$(echo ${{ steps.meta.outputs.tags }} | awk -F ',' '{print $1}') # Assuming the first tag is the one you want
+#          sed -i 's|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:.*|ghcr.io/${{ steps.kebab_case.outputs.kebab_repository }}:$NEW_TAG|g' k8s/k8s-deployment.yml
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --local user.email "ryuzu1006@gmail.com"
+#          git config --local user.name "${{ github.repository_owner }}"
+#          git add k8s/k8s-deployment.yml
+#          git commit -m "Update image tag to $NEW_TAG"
+#          git push

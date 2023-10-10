@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 5173
 
 # Vue.jsの開発サーバを起動
-CMD [npm, run, serve, --, --port, 5173]
+CMD [npm, run, dev, --port, 5173]
