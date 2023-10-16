@@ -6,7 +6,7 @@ import Profile from "@/components/main/profile/Profile.vue";
 
 <template>
     <v-app>
-        <Header/>
+<!--        <Header/>-->
         <v-main>
             <Profile/>
         </v-main>

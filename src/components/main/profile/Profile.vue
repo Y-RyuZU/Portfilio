@@ -6,13 +6,13 @@ import ProfileSkills from "@/components/main/profile/ProfileSkills.vue";
 
 <template>
 <!--    <v-container fluid>-->
-        <v-row no-gutters class="ba-0">
-            <v-col>
+        <v-row no-gutters class="header ba-0">
+            <v-col class="d-flex justify-center align-center">
                 <ProfileHeader/>
             </v-col>
         </v-row>
 
-        <v-row no-gutters class="ba-0">
+        <v-row no-gutters class="body ba-0">
             <v-col>
                 <ProfileBody/>
             </v-col>
@@ -27,12 +27,10 @@ import ProfileSkills from "@/components/main/profile/ProfileSkills.vue";
 </template>
 
 <style scoped lang="scss">
-.body {
-    padding: 0;
-    margin: 0;
-}
 .header {
-    padding: 0;
-    margin: 0;
+    height: 25vh;
+}
+.body {
+    height: 75vh;
 }
 </style>
