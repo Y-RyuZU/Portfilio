@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import ProfileHeader from "@/components/main/profile/ProfileHeader.vue";
-import ProfileBody from "@/components/main/profile/ProfileBody.vue";
-import ProfileSkills from "@/components/main/profile/ProfileSkills.vue";
+import SkillHeader from "@/components/main/skill/SkillHeader.vue";
+import SkillBody from "@/components/main/skill/SkillBody.vue";
 </script>
 
 <template>
     <v-row no-gutters class="header ba-0">
         <v-col class="d-flex justify-center align-center">
-            <ProfileHeader/>
+            <SkillHeader/>
         </v-col>
     </v-row>
 
     <v-row no-gutters class="body ba-0">
         <v-col>
-            <ProfileBody/>
+            <SkillBody/>
         </v-col>
     </v-row>
 </template>
