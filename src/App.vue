@@ -3,6 +3,7 @@
 import Header from "@/components/Header.vue";
 import Profile from "@/components/main/profile/Profile.vue";
 import Skill from "@/components/main/skill/Skill.vue";
+import Timeline from "@/components/main/timeline/Timeline.vue";
 </script>
 
 <template>
@@ -18,6 +19,11 @@ import Skill from "@/components/main/skill/Skill.vue";
                 <v-row>
                     <v-col>
                         <Skill/>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <Timeline/>
                     </v-col>
                 </v-row>
             </v-container>

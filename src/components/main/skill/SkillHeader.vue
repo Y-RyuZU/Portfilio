@@ -28,7 +28,7 @@ onMounted(async () => {
         <v-col cols="2"/>
         <v-col>
             <v-sheet height="100%" class="text-left pa-4" rounded color="grey-lighten-4">
-                <div v-for="[key, value] in skillLevel" class="d-flex align-center">
+                <div v-for="[key, value] in skillLevel" :key="key" class="d-flex align-center">
                     <div class="mr-2">
                         <v-img :src="value" aspect-ratio="1" height="2rem" width="2rem" contain/>
                     </div>
