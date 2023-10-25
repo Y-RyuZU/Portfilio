@@ -46,7 +46,7 @@ const doubleSkills = computed(() => {
     <v-container fluid class="d-flex justify-center">
         <v-sheet width="75vw">
             <v-slide-group class="pa-4">
-                <v-slide-group-item v-for="pairs in doubleSkills" :key="pairs">
+                <v-slide-group-item v-for="pairs in doubleSkills" :key="pairs[0].name">
                     <div class="mx-8">
                         <v-sheet no-gutters v-for="(skill, index) in pairs" :key="index" class="d-flex flex-column my-6" width="25vw" elevation="12" rounded="xl">
                             <v-row no-gutters>

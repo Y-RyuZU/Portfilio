@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import NamePlate from "@/assets/images/name_plate.svg";
+
 </script>
 
 <template>
-    <v-row no-gutters>
+    <v-row no-gutters style="height: 100%">
         <v-col cols="2"/>
         <v-col cols="4" class="d-flex justify-center">
-            <v-avatar color="surface-variant" class=""/>
+            <v-avatar color="surface-variant" size="100%" class=""/>
         </v-col>
         <v-col cols="6">
             <v-row no-gutters align="center" justify="start" class="mb-4">

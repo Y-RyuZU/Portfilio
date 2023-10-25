@@ -3,7 +3,6 @@ import iron_ingot from "@/assets/images/minecraft/item/iron_ingot.png";
 import { ref, onMounted } from 'vue';
 import dimaond from "@/assets/images/minecraft/item/diamond.png"
 import gold_ingot from "@/assets/images/minecraft/item/gold_ingot.png"
-// import iron_ingot from "@/assets/images/minecraft/item/iron_ingot.png"
 import coal from "@/assets/images/minecraft/item/coal.png"
 
 const skillLevel = ref(new Map<string, string>());
