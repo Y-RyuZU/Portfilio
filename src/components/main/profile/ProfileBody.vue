@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import NamePlate from "@/assets/images/name_plate.svg";
+import {VAvatar, VCol} from "vuetify/components";
+import {ref, onMounted, Ref, computed} from 'vue';
 
+// 型定義を追加
+const column: Ref<VCol> = ref();
+
+const size = computed(() => {
+    if (!column.value) return;
+    const { width, height } = column.value.$el.getBoundingClientRect();
+    return Math.min(width, height);
+});
 </script>
 
 <template>
     <v-row no-gutters style="height: 100%">
         <v-col cols="2"/>
-        <v-col cols="4" class="d-flex justify-center">
-            <v-avatar color="surface-variant" size="100%" class=""/>
+        <v-col cols="4" class="d-flex justify-center" ref="column">
+            <v-avatar color="surface-variant" :size="size"/>
         </v-col>
         <v-col cols="6">
             <v-row no-gutters align="center" justify="start" class="mb-4">

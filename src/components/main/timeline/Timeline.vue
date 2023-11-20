@@ -14,24 +14,34 @@ const timelines = ref(new Array<Timeline>());
 onMounted(() => {
     timelines.value.push({time: "2021/10/10", imagePath: diamond, title: "ポートフォリオを公開しました。", color: "primary"});
     timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
+    timelines.value.push({time: "2021/10/11", imagePath: null, title: "ダミー", color: "primary"});
 })
 
 </script>
 
 <template>
-    <v-timeline align="start">
-        <v-timeline-item v-for="timeline in timelines" :key="timeline.time">
-            <template v-slot:opposite>
-                {{ timeline.time }}
-            </template>
-            <div>
+    <div class="d-flex justify-start">
+        <v-timeline align="start">
+            <v-timeline-item v-for="timeline in timelines" :key="timeline.time">
+                <template v-slot:opposite>
+                    {{ timeline.time }}
+                </template>
                 <div>
-                    <v-img :src="timeline.imagePath" aspect-ratio="1" height="2rem" width="2rem" contain class="pixelated" v-if="timeline.imagePath != null"/>
+                    <div>
+                        <v-img :src="timeline.imagePath" aspect-ratio="1" height="2rem" width="2rem" contain class="pixelated" v-if="timeline.imagePath != null"/>
+                    </div>
+                    <div class="text-h6">{{ timeline.title }}</div>
                 </div>
-                <div class="text-h6">{{ timeline.title }}</div>
-            </div>
-        </v-timeline-item>
-    </v-timeline>
+            </v-timeline-item>
+        </v-timeline>
+    </div>
 </template>
 
 <style scoped lang="scss"></style>

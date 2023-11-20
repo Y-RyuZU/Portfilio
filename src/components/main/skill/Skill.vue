@@ -19,10 +19,10 @@ import SkillBody from "@/components/main/skill/SkillBody.vue";
 
 <style scoped lang="scss">
 .header {
-    height: 25vh;
+    min-height: 25vh;
 }
 
 .body {
-    height: 75vh;
+    min-height: 75vh;
 }
 </style>
