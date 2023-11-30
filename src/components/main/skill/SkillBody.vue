@@ -105,11 +105,11 @@ const showAll = ref(false);
 </script>
 
 <template>
-    <v-container fluid class="d-flex flex-column justify-center align-center ">
+    <v-container fluid class="d-flex flex-column justify-center align-center">
         <v-responsive width="80vw" :max-height="!showAll ? undefined : 512">
             <v-row class="pa-4" no-gutters>
-                <v-col v-for="skill in skills" :key="skill.name" cols="auto">
-                    <v-responsive class="px-8 pb-8" width="512">
+                <v-col v-for="skill in skills" :key="skill.name" cols="auto" justify="start">
+                    <v-responsive class="d-flex justify-start align-center px-8 pb-8" width="512">
                         <v-sheet class="py-6" elevation="12" rounded="xl">
                             <v-row no-gutters>
                                 <v-col cols="4" class="d-flex justify-center align-center">

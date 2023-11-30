@@ -1,50 +1,23 @@
 <script setup lang="ts">
-
-import Header from "@/components/Header.vue";
-import Profile from "@/components/main/profile/Profile.vue";
-import Skill from "@/components/main/skill/Skill.vue";
-import Timeline from "@/components/main/timeline/Timeline.vue";
-import HotbarMenu from "@/components/history/HotbarMenu.vue";
-import History from "@/pages/History.vue";
+import HotbarMenu from './components/history/HotbarMenu.vue';
 </script>
 
 <template>
     <v-app>
-<!--        <Header/>-->
+        <div class="fixed top-0 right-0 z-50">
+            <HotbarMenu />
+        </div>
         <v-main>
-<!--            <HotbarMenu/>-->
-<!--            <History/>-->
-<!--            <Profile/>-->
-<!--            <Skill/>-->
-<!--            <Timeline/>-->
             <v-container fluid>
-                <v-row>
-                    <v-col>
-                        <Profile/>
-                    </v-col>
-                </v-row>
-                <v-row align="stretch">
-                    <v-col>
-                        <Skill/>
-                    </v-col>
-                </v-row>
-                <v-row align="stretch">
-                    <v-col>
-                        <Timeline/>
-                    </v-col>
-                </v-row>
+                <RouterView />
             </v-container>
         </v-main>
     </v-app>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
 
 <style lang="scss">
-.pixelated {
-    image-rendering: pixelated;
-}
 .kufam {
     color: #404040;
     font-family: 'Kufam', sans-serif;
@@ -54,12 +27,24 @@ import History from "@/pages/History.vue";
     line-height: normal;
     letter-spacing: 1rem;
 }
+
 .hiragino {
     color: #2C2C2C;
-    font-family: 'Hiragino Sans',sans-serif;
+    font-family: 'Hiragino Sans', sans-serif;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     letter-spacing: 0.2rem;
+}
+
+.open {
+    color: #000;
+    font-family: 'Open Sans';
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.2rem;
+
 }
 </style>

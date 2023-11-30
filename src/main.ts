@@ -8,6 +8,9 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// Tailwind
+import './assets/styles/tailwind.css'
+
 import App from './App.vue'
 import router from './router'
 

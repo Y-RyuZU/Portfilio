@@ -14,8 +14,8 @@ const onClick = () => {
     <v-row no-gutters>
         <v-col class="d-flex justify-end">
             <div>
-                <v-img :src="hotbarMenu" height="8rem" width="8rem" contain class="pixelated" @click="onClick" v-if="!selected"/>
-                <v-img :src="hotbar" width="8rem" contain class="pixelated" @click="onClick" v-else/>
+                <v-img :src="hotbarMenu" height="6rem" width="6rem" contain class="pixelated" @click="onClick" v-if="!selected"/>
+                <v-img :src="hotbar" width="6rem" contain class="pixelated" @click="onClick" v-else/>
             </div>
         </v-col>
     </v-row>
