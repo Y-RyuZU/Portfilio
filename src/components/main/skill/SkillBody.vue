@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted, computed} from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
 interface Skill {
     name: string;
@@ -106,37 +106,40 @@ const showAll = ref(false);
 
 <template>
     <v-container fluid class="d-flex flex-column justify-center align-center">
-        <v-responsive width="80vw" :max-height="!showAll ? undefined : 512">
-            <v-row class="pa-4" no-gutters>
-                <v-col v-for="skill in skills" :key="skill.name" cols="auto" justify="start">
-                    <v-responsive class="d-flex justify-start align-center px-8 pb-8" width="512">
-                        <v-sheet class="py-6" elevation="12" rounded="xl">
-                            <v-row no-gutters>
+        <v-responsive width="60vw" :max-height="!showAll ? undefined : 512">
+            <v-row class="pa-4">
+                <v-col v-for="skill in skills" :key="skill.name" cols="12" sm="6" md="4" justify="start">
+                    <v-card class="mb-4" elevation="12" rounded="xl">
+                        <v-card-item>
+                            <div class="d-flex align-center">
+                                <v-icon size="large" class="mr-2">
+                                    <v-img :src="skill.imagePath" aspect-ratio="1" contain class="pixelated" />
+                                </v-icon>
+                                <v-card-title class="hiragino">{{ skill.name }}</v-card-title>
+                            </div>
+                        </v-card-item>
+                        <v-card-text>
+                            <v-row>
                                 <v-col cols="4" class="d-flex justify-center align-center">
-                                    <v-img :src="skill.imagePath" aspect-ratio="1" height="6rem" width="6rem" contain class="pixelated"/>
+                                    <v-img :src="skill.imagePath" aspect-ratio="1" height="6rem" width="6rem" contain
+                                        class="pixelated" />
                                 </v-col>
                                 <v-col cols="8">
-                                    <div class="d-flex justify-start flex-row ma-4">
-                                        <div class="mr-2">
-                                            <v-img :src="skill.imagePath" aspect-ratio="1" height="2rem" width="2rem" contain class="pixelated"/>
-                                        </div>
-                                        <div class="hiragino">{{ skill.name }}</div>
-                                    </div>
                                     <div class="text-body-6">{{ skill.level }}</div>
                                 </v-col>
                             </v-row>
-                        </v-sheet>
-                    </v-responsive>
+                        </v-card-text>
+                    </v-card>
+                    <!-- </v-responsive> -->
                 </v-col>
             </v-row>
         </v-responsive>
-        <div class="fade-out"/>
+        <div class="fade-out" />
         <v-btn>
-            <v-icon v-if="showAll" @click="showAll = false">mdi-chevron-up</v-icon>
-            <v-icon v-else @click="showAll = true">mdi-chevron-down</v-icon>
+            <v-icon icon="mdi-chevron-up" v-if="showAll" @click="showAll = false" />
+            <v-icon icon="mdi-chevron-down" v-else @click="showAll = true" />
         </v-btn>
     </v-container>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

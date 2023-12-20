@@ -43,37 +43,31 @@ onMounted(() => {
 </script>
 
 <template>
-    <v-row no-gutter height="100%">
-        <v-col />
-        <v-col cols="10" class="d-flex justify-center pa-6" ref="column">
-            <v-data-iterator :items="works" :items-per-page="worksPerRow" class="w-full">
-                <template v-slot:default="{ items }">
-                    <v-row>
-                        <v-col v-for="(work, i) in items" :key="i" cols="12" sm="6" md="4">
-                            <v-responsive class="pa-6" :aspect-ratio="16 / 9">
-                                <div>
-                                    <v-badge v-if="work.raw.new" color="red" content="New" location="top start" overlap
-                                        class="h-full w-full">
-                                        <v-card class="h-full w-full">
-                                            <div class="d-flex justify-center">
-                                                <v-img :src="work.raw.image" aspect-ratio="1" class="pixelated mb-8" />
-                                            </div>
-                                            <v-card-text class="hiragino">{{ work.raw.description }}</v-card-text>
-                                        </v-card>
-                                    </v-badge>
-                                    <v-card v-else>
-                                        <v-img :src="work.raw.image" aspect-ratio="1" class="pixelated mb-8" />
-                                        <v-card-text class="hiragino">{{ work.raw.description }}</v-card-text>
-                                    </v-card>
-                                </div>
-                            </v-responsive>
-                        </v-col>
-                    </v-row>
-                </template>
-            </v-data-iterator>
-        </v-col>
-        <v-col />
-    </v-row>
+    <v-container fluid class="d-flex flex-column justify-center align-center">
+        <div class="h-full w-full d-flex justify-space-between align-center">
+            <v-icon size="x-large" icon="mdi-chevron-left" class="ml-4" />
+            <v-responsive width="80vw">
+                <v-data-iterator :items="works" :items-per-page="worksPerRow" :show-arrows="false" class="ma-8">
+                    <template v-slot:default="{ items }">
+                        <v-row>
+                            <v-col v-for="(work, i) in items" :key="i" cols="12" sm="6" md="4">
+                                <v-card elevation="12" rounded="xl" :image="work.raw.image"
+                                    class="pixelated aspect-h-9 aspect-w-16">
+                                    <v-card-title class="hiragino">
+                                        <div class="d-flex">
+                                            <v-badge v-if="work.raw.new" color="red" content="New" inline />{{
+                                                work.raw.description }}
+                                        </div>
+                                    </v-card-title>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                    </template>
+                </v-data-iterator>
+            </v-responsive>
+            <v-icon size="x-large" icon="mdi-chevron-right" class="mr-4" />
+        </div>
+    </v-container>
 </template>
 
 <style scoped lang="scss"></style>

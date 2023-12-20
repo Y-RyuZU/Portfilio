@@ -18,12 +18,12 @@ import Work from "@/components/main/work/Work.vue";
     </v-row>
     <v-row>
         <v-col>
-            <Timeline />
+            <Work />
         </v-col>
     </v-row>
     <v-row>
         <v-col>
-            <Work />
+            <Timeline />
         </v-col>
     </v-row>
 </template>

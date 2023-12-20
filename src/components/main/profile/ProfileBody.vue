@@ -13,22 +13,26 @@ const column: Ref<VCol | null> = ref(null);
 
     // paddingとmarginを取得
     const style = window.getComputedStyle(column.value.$el);
-    const paddingTop = parseFloat(style.paddingTop);
+    const paddingTop = parseFloat(style.margin);
     const paddingBottom = parseFloat(style.paddingBottom);
 
     // paddingとmarginを考慮に入れてサイズを計算
-    const adjustedWidth = width - paddingTop - paddingBottom;
-    const adjustedHeight = height - paddingTop - paddingBottom;
+    const adjustedWidth = width + paddingTop;
+    const adjustedHeight = height + paddingTop;
 
-    return Math.min(adjustedWidth, adjustedHeight);
+    console.log(height, width, parseFloat(style.margin), parseFloat(style.padding));
+
+    return height;
 });
 </script>
 
 <template>
-    <v-row no-gutters style="height: 100%">
-        <v-col cols="2"/>
-        <v-col cols="4" class="d-flex justify-center pa-6" ref="column">
-            <v-avatar class="pa-4 ma-16" color="surface-variant" :size="size"/>
+    <v-container width="80vw">
+        <v-row no-gutters>
+        <v-col cols="6" class="d-flex justify-end align-center" ref="column">
+            <!-- <div class="h-full"> -->
+                <v-avatar class="mr-8" color="surface-variant" :size="size"/>
+            <!-- </div> -->
         </v-col>
         <v-col cols="6">
             <v-row no-gutters align="center" justify="start" class="mb-4">
@@ -42,16 +46,10 @@ const column: Ref<VCol | null> = ref(null);
 
             <v-row>
                 <v-col class="text-left">
-                    <div class="d-flex justify-start text-start ml-0 mb-4">
-                        <v-row>
-                            <v-col cols="8">
-                                <v-img class="d-flex justify-start text-start ml-0 mb-4" height="15rem" :src="NamePlate"/>
-                            </v-col>
-                            <v-col cols="auto"/>
-                        </v-row>
+                    <div class="d-flex justify-start mb-8">
+                        <v-img width="60%" :src="NamePlate"/>
                     </div>
-                    <div class="text-h4">または「RyuZU」</div>
-                    <div class="my-4" style="width: 60%; border-bottom: 2px solid black;"></div>
+                    <div class="text-h4 mb-4">または「RyuZU」</div>
                     <div class="text-body-2">あなたが書きたいテキスト</div>
                     <div class="text-body-2">さらにテキスト</div>
                     <div class="text-body-2">最後のテキスト</div>
@@ -59,6 +57,7 @@ const column: Ref<VCol | null> = ref(null);
             </v-row>
         </v-col>
     </v-row>
+    </v-container>
 </template>
 
 <style scoped lang="scss">
