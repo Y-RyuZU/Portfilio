@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HotbarMenu from './components/history/HotbarMenu.vue';
+import HotbarMenu from './components/header/HotbarMenu.vue';
 </script>
 
 <template>
@@ -8,9 +8,7 @@ import HotbarMenu from './components/history/HotbarMenu.vue';
             <HotbarMenu />
         </div>
         <v-main>
-            <v-container fluid>
-                <RouterView />
-            </v-container>
+            <RouterView />
         </v-main>
     </v-app>
 </template>

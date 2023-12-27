@@ -4,13 +4,13 @@ import SkillBody from "@/components/main/skill/SkillBody.vue";
 </script>
 
 <template>
-    <v-row no-gutters class="header ba-0">
+    <v-row no-gutters class="h-[25vh] ba-0">
         <v-col class="d-flex justify-center align-center">
             <SkillHeader/>
         </v-col>
     </v-row>
 
-    <v-row no-gutters class="body ba-0">
+    <v-row no-gutters class="ba-0">
         <v-col>
             <SkillBody/>
         </v-col>
@@ -18,11 +18,4 @@ import SkillBody from "@/components/main/skill/SkillBody.vue";
 </template>
 
 <style scoped lang="scss">
-.header {
-    min-height: 25vh;
-}
-
-.body {
-    min-height: 75vh;
-}
 </style>
