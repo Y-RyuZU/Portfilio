@@ -1,11 +1,28 @@
-<script setup lang="ts">
+<!--<script setup lang="ts">-->
+<!--import {ref, watch} from 'vue';-->
+<!--import MidiParser from "midi-parser-js";-->
 
-</script>
+<!--const file = ref<File[] | null>(null);-->
+<!--watch(file, async (newFiles) => {-->
+<!--    const buffer = await newFiles[0]?.arrayBuffer();-->
+<!--    const byteArray = new Uint8Array(buffer)-->
 
-<template>
-  $END$
-</template>
+<!--    const midi = MidiParser.parse(byteArray)-->
+<!--    midi.track.forEach((track) => {-->
+<!--        console.log(track)-->
+<!--    })-->
 
-<style scoped lang="scss">
+<!--    console.log(midi)-->
+<!--})-->
+<!--</script>-->
 
-</style>
+
+<!--<template>-->
+<!--    <v-file-input v-model="file">-->
+
+<!--    </v-file-input>-->
+<!--</template>-->
+
+<!--<style scoped lang="scss">-->
+
+<!--</style>-->

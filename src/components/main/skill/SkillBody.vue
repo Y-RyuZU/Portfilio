@@ -2,12 +2,15 @@
 import {ref, onMounted, computed} from 'vue';
 import spyglass from "@/assets/images/minecraft/item/spyglass.png"
 
+type Category = "Language" | "Framework" | "Library" | "Database" | "Services" | "Tools" | "Other";
+type Field = "Backend" | "Frontend" | "Mobile" | "Desktop" | "On-premises" | "Cloud";
+
 interface Skill {
     name: string;
     level: string;
     imagePath: string;
-    category: "Language" | "Framework" | "Library" | "Database" | "Services" | "Tools" | "Other";
-    field: "Backend" | "Frontend" | "Mobile" | "Desktop" | "On-premises" | "Cloud";
+    category: Category;
+    field: Field;
 }
 
 import diamond from "@/assets/images/minecraft/item/diamond.png"
@@ -15,118 +18,47 @@ import gold_ingot from "@/assets/images/minecraft/item/gold_ingot.png"
 import iron_ingot from "@/assets/images/minecraft/item/iron_ingot.png"
 import coal from "@/assets/images/minecraft/item/coal.png"
 
+const names = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "Kotlin",
+    "Python",
+    "C",
+    "C++",
+    "C#",
+    "Go",
+    "Rust",
+    "Swift",
+    "Dart",
+    "SQL"
+];
+const level = "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明";
+const images = [
+    diamond,
+    gold_ingot,
+    iron_ingot,
+    coal
+];
+const categories = ref<Array<Category>>(["Language", "Framework", "Library", "Database", "Services", "Tools", "Other"]);
+const fields = ref<Array<Field>>(["Backend", "Frontend", "Mobile", "Desktop", "On-premises", "Cloud"])
+
 const skills = ref(new Array<Skill>());
 onMounted(() => {
-    skills.value.push({
-        name: "HTML",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: diamond,
-        category: "Language",
-        field: "Frontend"
-    });
-    skills.value.push({
-        name: "CSS",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: gold_ingot,
-        category: "Language",
-        field: "Frontend"
-    });
-    skills.value.push({
-        name: "JavaScript",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: iron_ingot,
-        category: "Language",
-        field: "Frontend",
-    });
-    skills.value.push({
-        name: "TypeScript",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: coal,
-        category: "Language",
-        field: "Frontend",
-    });
-    skills.value.push({
-        name: "Java",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: diamond,
-        category: "Language",
-        field: "Backend",
-    });
-    skills.value.push({
-        name: "Kotlin",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: gold_ingot,
-        category: "Language",
-        field: "Backend",
-    });
-    skills.value.push({
-        name: "Python",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: iron_ingot,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "C",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: coal,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "C++",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: diamond,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "C#",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: gold_ingot,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "Go",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: diamond,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "Rust",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: gold_ingot,
-        category: "Language",
-        field: "Backend"
-    });
-    skills.value.push({
-        name: "Swift",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: iron_ingot,
-        category: "Language",
-        field: "Mobile"
-    });
-    skills.value.push({
-        name: "Dart",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: coal,
-        category: "Language",
-        field: "Mobile"
-    });
-    skills.value.push({
-        name: "SQL",
-        level: "命令規則を用いたコーディングを行えます。このポートフォリオはBEMを……スキルの説明スキルの説明スキルの説明",
-        imagePath: diamond,
-        category: "Language",
-        field: "Database"
-    });
+    for (let i = 0; i < names.length; i++) {
+        skills.value.push({
+            name: names[i % names.length],
+            level: level,
+            imagePath: images[i % images.length],
+            category: categories.value[i % categories.value.length],
+            field: fields.value[i % fields.value.length]
+        })
+    }
 })
 
 const showAll = ref(false);
-const categories = ref(["Language", "Framework", "Library", "Database", "Services", "Tools", "Other"]);
-const fields = ref(["Backend", "Frontend", "Mobile", "Desktop", "On-premises", "Cloud"])
 const selectedCategories = ref<string[]>([]);
 const selectedFields = ref<string[]>([]);
 
@@ -220,15 +152,12 @@ const removeField = (index: number) => {
                             </div>
                         </v-card-item>
                         <v-card-text>
-                            <v-row>
-                                <v-col cols="4" class="d-flex justify-center align-center">
-                                    <v-img :src="skill.imagePath" aspect-ratio="1" height="6rem" width="6rem" contain
-                                           class="pixelated"/>
-                                </v-col>
-                                <v-col cols="8">
-                                    <div class="text-body-6">{{ skill.level }}</div>
-                                </v-col>
-                            </v-row>
+                            <div class="min-h-[100px] d-flex justify-start">
+                                <div class="aspect-[1] w-full h-full">
+                                    <v-img :src="skill.imagePath" contain class="pixelated"/>
+                                </div>
+                                <div class="text-body-6">{{ skill.level }}</div>
+                            </div>
                         </v-card-text>
                     </v-card>
                 </v-col>
