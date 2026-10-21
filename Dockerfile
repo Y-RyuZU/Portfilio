@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:22.23.4-alpine
 
 # ワーキングディレクトリの設定
 WORKDIR app
@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 5173
 
 # Vue.jsの開発サーバを起動
-CMD [npm, run, dev, --port, 5173]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
